@@ -300,12 +300,12 @@ class SandboxRequestHandler(BaseHTTPRequestHandler):
             for log in sandbox_state["logs"]:
                 log_rows += f'<div class="log-line"><span class="log-ts">[{log["timestamp"]}]</span><span class="log-sys">{log["system"]}</span><span class="log-msg">{log["message"]}</span></div>'
 
-            html = HTML_TEMPLATE.format(
-                addr_rows=addr_rows,
-                ad_rows=ad_rows,
-                cs_rows=cs_rows,
-                waf_rows=waf_rows,
-                log_rows=log_rows
+            html = (
+                HTML_TEMPLATE.replace("{addr_rows}", addr_rows)
+                .replace("{ad_rows}", ad_rows)
+                .replace("{cs_rows}", cs_rows)
+                .replace("{waf_rows}", waf_rows)
+                .replace("{log_rows}", log_rows)
             )
             self.wfile.write(html.encode("utf-8"))
             return
