@@ -420,6 +420,20 @@ class SandboxRequestHandler(BaseHTTPRequestHandler):
             self.wfile.write(json.dumps({"resources": aids}).encode("utf-8"))
             return
 
+        elif path == "/api/v1/assets/critical":
+            self.send_response(200)
+            self.send_header("Content-Type", "application/json")
+            self.end_headers()
+            response_data = {
+                "critical_assets": {
+                    "ips": ["10.0.0.1", "10.0.0.2", "192.168.1.1", "192.168.1.254"],
+                    "hosts": ["DB-PROD-01", "DC-PROD-AD", "CORE-BANK-GW"],
+                    "domains": ["internal.bank.local", "secure.bank.com"]
+                }
+            }
+            self.wfile.write(json.dumps(response_data).encode("utf-8"))
+            return
+
         # 404 handler
         self.send_response(404)
         self.end_headers()
@@ -579,11 +593,30 @@ class SandboxRequestHandler(BaseHTTPRequestHandler):
         self.send_response(404)
         self.end_headers()
 
-if __name__ == "__main__":
-    port = int(os.getenv("SANDBOX_PORT", 8095))
+def run_server(port):
     print(f"[*] Starting Defensive Staging Sandbox on port {port}...")
     server = HTTPServer(("0.0.0.0", port), SandboxRequestHandler)
     try:
         server.serve_forever()
+    except KeyboardInterrupt:
+        pass
+
+if __name__ == "__main__":
+    import threading
+    port_8095 = int(os.getenv("SANDBOX_PORT", 8095))
+    port_8083 = 8083
+    
+    t1 = threading.Thread(target=run_server, args=(port_8095,), daemon=True)
+    t2 = threading.Thread(target=run_server, args=(port_8083,), daemon=True)
+    
+    t1.start()
+    t2.start()
+    
+    try:
+        while True:
+            t1.join(timeout=1.0)
+            t2.join(timeout=1.0)
+            if not t1.is_alive() or not t2.is_alive():
+                break
     except KeyboardInterrupt:
         pass
