@@ -1,5 +1,7 @@
 # Aegis Defensive Staging Sandbox (Defensive Simulator)
 
+> **Part of the [Little Boy's Aegis](https://github.com/Little-Boy-s-Aegis) project** -- an AI-driven Security Operations platform for automated threat detection, analysis, and response.
+
 The **Aegis Defensive Staging Sandbox** is an API mock simulator that emulates enterprise cybersecurity infrastructure interfaces. It provides realistic HTTP endpoints for firewall blocks, active directory account status modifications, endpoint isolation (EDR), and WAF rules. 
 
 This sandbox enables the **SOAR Engine (Layer 2)** to execute its automated playbooks and containment decisions in a safe staging sandbox without altering actual production cloud environments.
@@ -75,3 +77,19 @@ docker run -d -p 8095:8095 --name aegis-sandbox-service aegis-staging-sandbox
 
 ## Performance Optimizations
 * **DNS Resolution Bypass**: Under Windows and containerized environments, reverse DNS lookups on incoming request headers can introduce a 20-40 second delay per socket request. The sandbox overrides Python's default socket `address_string()` resolver to immediately return the raw client IP address, ensuring instantaneous API responses during heavy load-testing.
+
+---
+
+## Related Repositories
+
+| Repository | Description |
+|---|---|
+| [aegis-bank-deployment](https://github.com/Little-Boy-s-Aegis/aegis-bank-deployment) | Docker Compose orchestration for the full Aegis platform |
+| [aegis-bank-backend](https://github.com/Little-Boy-s-Aegis/aegis-bank-backend) | Spring Boot banking API (simulated target application) |
+| [aegis-bank-web-client](https://github.com/Little-Boy-s-Aegis/aegis-bank-web-client) | Next.js web banking portal |
+| [aegis-bank-mobile-app](https://github.com/Little-Boy-s-Aegis/aegis-bank-mobile-app) | Flutter mobile banking app |
+| [dashboard](https://github.com/Little-Boy-s-Aegis/dashboard) | SOC Dashboard -- Go backend + React frontend |
+| [agent-layer-1](https://github.com/Little-Boy-s-Aegis/agent-layer-1) | AI Sensor Agents for threat detection |
+| [agent-layer-2](https://github.com/Little-Boy-s-Aegis/agent-layer-2) | Meta Analyzer / SOAR Orchestrator prompts |
+| [aegis-soar-engine](https://github.com/Little-Boy-s-Aegis/aegis-soar-engine) | SOAR Decision Engine for automated response |
+| [aegis-bank-terraform](https://github.com/Little-Boy-s-Aegis/aegis-bank-terraform) | Terraform IaC for cloud infrastructure |
