@@ -1,9 +1,9 @@
 # Aegis Defensive Staging Sandbox
 
-[![Git Clones](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/Little-Boy-s-Aegis/aegis-bank-deployment/main/aegis-staging-sandbox-clone-badge.json)](https://github.com/Little-Boy-s-Aegis/aegis-bank-deployment)
-[![Unique Cloners](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/Little-Boy-s-Aegis/aegis-bank-deployment/main/aegis-staging-sandbox-uniques-badge.json)](https://github.com/Little-Boy-s-Aegis/aegis-bank-deployment)
-[![Release Downloads](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/Little-Boy-s-Aegis/aegis-bank-deployment/main/downloads-badge.json)](https://github.com/Little-Boy-s-Aegis/aegis-bank-deployment/releases)
-[![Stars](https://img.shields.io/github/stars/Little-Boy-s-Aegis/aegis-staging-sandbox?style=flat&color=F59E0B&logo=github&label=stars)](https://github.com/Little-Boy-s-Aegis/aegis-staging-sandbox/stargazers)
+[![Git Clones](https://badgen.net/https/cdn.jsdelivr.net/gh/Little-Boy-s-Aegis/aegis-bank-deployment@main/aegis-staging-sandbox-clone-badge.json)](https://github.com/Little-Boy-s-Aegis/aegis-bank-deployment)
+[![Unique Cloners](https://badgen.net/https/cdn.jsdelivr.net/gh/Little-Boy-s-Aegis/aegis-bank-deployment@main/aegis-staging-sandbox-uniques-badge.json)](https://github.com/Little-Boy-s-Aegis/aegis-bank-deployment)
+[![Release Downloads](https://badgen.net/https/cdn.jsdelivr.net/gh/Little-Boy-s-Aegis/aegis-bank-deployment@main/downloads-badge.json)](https://github.com/Little-Boy-s-Aegis/aegis-bank-deployment/releases)
+[![Stars](https://badgen.net/github/stars/Little-Boy-s-Aegis/aegis-staging-sandbox?color=f59e0b)](https://github.com/Little-Boy-s-Aegis/aegis-staging-sandbox/stargazers)
 
 Lightweight HTTP simulator for testing Aegis SOAR response playbooks without
 changing real firewall, identity, or endpoint-security systems. It models a
